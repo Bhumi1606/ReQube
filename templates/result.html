@@ -1,0 +1,52 @@
+<!-- templates/result.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analysis Result</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Requirement Analysis Result</h1>
+
+        {% if result.error %}
+            <p class="error">Error: {{ result.error }}</p>
+        {% else %}
+            <h2>🔹 Key Points</h2>
+            <ul>
+                {% for point in result.key_points %}
+                    <li>{{ point }}</li>
+                {% endfor %}
+            </ul>
+
+            <h2>📜 Summary</h2>
+            <p>{{ result.summary }}</p>
+
+            <h2>📌 Functional Requirements</h2>
+            <ul>
+                {% for fr in result.requirements.functional %}
+                    <li>{{ fr }}</li>
+                {% endfor %}
+            </ul>
+
+            <h2>⚙️ Non-Functional Requirements</h2>
+            <ul>
+                {% for nfr in result.requirements.non_functional %}
+                    <li>{{ nfr }}</li>
+                {% endfor %}
+            </ul>
+
+            <h2>❓ Missing Information Questions</h2>
+            <ul>
+                {% for question in result.missing_info_questions %}
+                    <li>{{ question }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+
+        <a href="{{ url_for('home') }}">Back</a>
+    </div>
+</body>
+</html>

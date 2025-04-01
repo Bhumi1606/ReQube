@@ -1,0 +1,29 @@
+<!-- templates/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ReQube - Requirement Elicitation</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>ReQube - Requirement Elicitation</h1>
+        <form action="/" method="POST" enctype="multipart/form-data">
+            <label for="file">Upload Document:</label>
+            <input type="file" name="file" accept=".pdf,.docx,.txt,.jpg,.png">
+            
+            <label for="input_text">Or Enter Text:</label>
+            <textarea name="input_text" placeholder="Enter business requirements here..."></textarea>
+            
+            <button type="submit">Analyze</button>
+        </form>
+
+        {% if analysis_result %}
+            <h2>Analysis Result</h2>
+            <a href="{{ url_for('result') }}">View Detailed Report</a>
+        {% endif %}
+    </div>
+</body>
+</html>

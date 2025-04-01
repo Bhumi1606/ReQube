@@ -1,0 +1,4 @@
+{
+    "file_path": "C:/Projects/Null_Pointers/ReQube/input file.png",
+    "extracted_text": "ID\n\nFR-01\n\nFR-02\n\nNFR-01\n\nFR-03\n\nFR-03\n\nExample Requirements\n\nType\n\nFunctional\n\nNon-\nFunctional\n\nNon-\nFunctional\n\nFun-\ncunctional\n\nFunctional\n\nRequirement\n\nThe system shall allow users to create an\naccount.\n\nThe user shall be able to search for\nproducts by name.\n\nThe application shall have a 99,9% uptime.\nThe system shall comply with GDPR\nregulations.\n\nThe user shall log out after 15 minutes\nof inactivity."
+}
