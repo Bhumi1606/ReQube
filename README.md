@@ -109,11 +109,11 @@ celery -A app.celery worker --loglevel=info
 ---
 
 ## **Contributors**  
-👨‍💻 Bhumi Wayal (https://github.com/Bhumi1606)  
-👩‍💻 Sneha Kodre (http://github.com/kodre07)
-👩‍💻 Gauri Rajput (http://github.com/kodre07
-👩‍💻 Rajeshwari Nalbalwar (http://github.com/RajeshwariN14)
-👩‍💻 Diya Agrawal (http://github.com//'Diyaa112)
+👨‍💻 Bhumi Wayal (https://github.com/Bhumi1606) <br> 
+👩‍💻 Sneha Kodre (http://github.com/kodre07)<br>
+👩‍💻 Gauri Rajput (http://github.com/kodre07<br>
+👩‍💻 Rajeshwari Nalbalwar (http://github.com/RajeshwariN14)<br>
+👩‍💻 Diya Agrawal (http://github.com//'Diyaa112)<br>
 
 ---
 
