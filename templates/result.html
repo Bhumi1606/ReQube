@@ -1,5 +1,5 @@
-<!-- templates/result.html -->
-<!DOCTYPE html>
+<!-- templates/result.html
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -7,46 +7,124 @@
     <title>Analysis Result</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
+<body> -->
+ 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Business Requirement Analysis Result</title>
+    <style> 
+        /* Add your custom CSS styles here */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #1a1a1a;
+            color: #fff;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #2c2f3f;
+            padding: 20px;
+            border-radius: 8px;
+        }
+        .section-header {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+            color: #00b5e2;
+        }
+        .req-item {
+            margin-bottom: 10px;
+        }
+        .req-item span {
+            font-weight: bold;
+        }
+        .prioritized-req {
+            background-color: #383c4a;
+            padding: 15px;
+            border-radius: 8px;
+        }
+        .highlight {
+            color: #ffcc00;
+        } -->
+    </style>
+</head>
 <body>
-    <div class="container">
-        <h1>Requirement Analysis Result</h1>
 
-        {% if result.error %}
-            <p class="error">Error: {{ result.error }}</p>
-        {% else %}
-            <h2>🔹 Key Points</h2>
-            <ul>
-                {% for point in result.key_points %}
-                    <li>{{ point }}</li>
-                {% endfor %}
-            </ul>
+<div class="container">
+    <h1>Requirement Analysis Result</h1>
 
-            <h2>📜 Summary</h2>
-            <p>{{ result.summary }}</p>
+    Key Points
+     <div>
+        <h2 class="section-header">Key Points</h2>
+        <ul>
+            {% for key_point in result['key_points'] %}
+                <li>{{ key_point }}</li>
+            {% endfor %}
+        </ul>
+    </div> 
 
-            <h2>📌 Functional Requirements</h2>
-            <ul>
-                {% for fr in result.requirements.functional %}
-                    <li>{{ fr }}</li>
-                {% endfor %}
-            </ul>
+     Summary
+     <div>
+        <h2 class="section-header">Summary</h2>
+        <p>{{ result['summary'] }}</p>
+    </div> 
 
-            <h2>⚙️ Non-Functional Requirements</h2>
-            <ul>
-                {% for nfr in result.requirements.non_functional %}
-                    <li>{{ nfr }}</li>
-                {% endfor %}
-            </ul>
+     Functional and Non-Functional Requirements 
+     <div>
+        <h2 class="section-header">Functional Requirements (FRs)</h2>
+        <ul>
+            {% for fr in result['requirements']['functional'] %}
+                <li class="req-item">{{ fr }}</li>
+            {% endfor %}
+        </ul>
+        
+        <h2 class="section-header">Non-Functional Requirements (NFRs)</h2>
+        <ul>
+            {% for nfr in result['requirements']['non_functional'] %}
+                <li class="req-item">{{ nfr }}</li>
+            {% endfor %}
+        </ul>
+    </div> 
 
-            <h2>❓ Missing Information Questions</h2>
-            <ul>
-                {% for question in result.missing_info_questions %}
-                    <li>{{ question }}</li>
-                {% endfor %}
-            </ul>
-        {% endif %}
-
-        <a href="{{ url_for('home') }}">Back</a>
+    
+    Missing Information Questions 
+     <div>
+        <h2 class="section-header">Questions for Missing Information</h2>
+        <ul>
+            {% for question in result['missing_info_questions'] %}
+                <li>{{ question }}</li>
+            {% endfor %}
+        </ul>
     </div>
+     Prioritized Requirements Section
+    <div class="prioritized-req">
+        <h2 class="section-header highlight">Prioritized Requirements</h2>
+        <p>The following requirements have been prioritized based on their importance:</p>
+
+        <h3 class="highlight">Top Priority:</h3>
+        <ul>
+            {% for fr in result['requirements']['functional'][:2] %}
+                <li>{{ fr }}</li>
+            {% endfor %}
+        </ul>
+
+        <h3 class="highlight">High Priority:</h3>
+        <ul>
+            {% for nfr in result['requirements']['non_functional'][:2] %}
+                <li>{{ nfr }}</li>
+             {% endfor %}
+        </ul> 
+     </div> 
+
+
+    
+     <a href="{{ url_for('home') }}">Go Back</a>
+</div>
+
 </body>
-</html>
+ </html>  
+    
